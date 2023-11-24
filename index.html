@@ -3,9 +3,31 @@
 <head>
     <meta name="viewport" content="width=device-width, minimum-scale=0.1">
     <title>img viewer</title>
+    <style>
+        body {
+            background-color: white;
+        }
+        @media (prefers-color-scheme: dark) {
+          .body{
+            background-color: black;
+          }
+        }
+    </style>
 </head>
-<body style="margin: 0px; height: 100%; background-color: rgb(14, 14, 14)">
-    <img id="image" style="display: block; -webkit-user-select: none; margin: auto; background-color: hsl(0, 0%, 90%); transition: background-color 300ms" src="" />
+<body style="
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    object-fit: contain;
+">
+    <img id="image" src="" style="
+        display: block;
+        max-height: 100vh;
+        max-width: 100vw;
+    " />
     <script>
         const params = new URLSearchParams(document.location.search);
         const imgURL = params.get("img");
